@@ -12,17 +12,25 @@ class ClubMeta(models.Model):
     address = models.CharField(max_length=30)
     way_count = models.IntegerField()
 
+    def __str__(self) -> str:
+        return self.club_name
 
 class Ligue(models.Model):
     ligue = models.AutoField(primary_key=True)
     ligue_name = models.CharField(max_length=30)
     club_id = models.ForeignKey(ClubMeta, on_delete=models.CASCADE)
 
+    def __str__(self) -> str:
+        return self.ligue_name
+
 
 class Game(models.Model):
     game = models.AutoField(primary_key=True)
     game_name = models.CharField(max_length=30)
     game_date = models.DateTimeField()
+
+    def __str__(self) -> str:
+        return self.game_name
     
 
 class Command(models.Model):
@@ -31,6 +39,9 @@ class Command(models.Model):
     lugue_id = models.ForeignKey(Ligue, on_delete=models.CASCADE, default=None)
     comand_name = models.CharField(max_length=50)
     score = models.FloatField()
+
+    def __str__(self) -> str:
+        return self.comand_name
     
 
 
@@ -44,6 +55,9 @@ class Players(models.Model):
     way = models.IntegerField()
     throw_count = models.IntegerField()
     avarege_score = models.FloatField()
+
+    def __str__(self) -> str:
+        return self.last_name
 
 
 
