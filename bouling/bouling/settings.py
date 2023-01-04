@@ -33,11 +33,26 @@ ALLOWED_HOSTS = [
     'https://hk2281-vigilant-space-garbanzo-qvj444qjj79fxwvv-8000.preview.app.github.dev'
 ]
 
-CSRF_TRUSTED_ORIGINS=['https://hk2281-vigilant-space-garbanzo-qvj444qjj79fxwvv-8000.preview.app.github.dev']
+CSRF_TRUSTED_ORIGINS=[
+    'https://hk2281-vigilant-space-garbanzo-qvj444qjj79fxwvv-8000.preview.app.github.dev'
+]
+
+JAZZMIN_SETTINGS = {
+        # Hide these apps when generating side menu e.g (auth)
+    "hide_apps": [
+        'auth'
+    ],
+
+    # Hide these models when generating side menu (e.g auth.user)
+    "hide_models": [
+        'auth.user'
+    ],
+}
 
 # Application definition
 
 INSTALLED_APPS = [
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
