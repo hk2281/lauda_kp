@@ -25,7 +25,13 @@ SECRET_KEY = "django-insecure-&+j745wrr6t@v%ns+wqye-fijagb!34+ho63e$@hase=21!e5b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ADMIN_LANGUAGE_CODE = 'ru-RU'
+LANGUAGE_CODE = 'ru'
 
+TIME_ZONE = 'UTC'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
 
 ALLOWED_HOSTS = [
     'http://127.0.0.1',
@@ -75,6 +81,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = "bouling.urls"
