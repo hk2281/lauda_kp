@@ -80,3 +80,5 @@ class Players(models.Model):
        verbose_name_plural = _('игроки')
 
 
+
+###sfkljsf
