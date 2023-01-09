@@ -17,10 +17,22 @@ ENV PYTHONUNBUFFERED 1
 RUN pip install --upgrade pip  
 
 # copy whole project to your docker home directory. 
-COPY . $DockerHOME  
+COPY . $DockerHOME
+
+RUN apt-get -y update
+RUN apt-get -y upgrade
+
 # run this command to install all dependencies  
 RUN pip install -r r.txt  
+
+RUN apt-get install -y sqlite3 libsqlite3-dev
+
+COPY base.html /usr/local/lib/python3.10/site-packages/jazzmin/templates/admin/base.html
+COPY index.html /usr/local/lib/python3.10/site-packages/jazzmin/templates/admin/index.html
+
+
+VOLUME /workspaces /home/app/webapp/test
 # port where the Django app runs  
-EXPOSE 8000  
+EXPOSE 8000 
 # start server  
-CMD python manage.py runserver  
+CMD python manage.py runserver 0.0.0.0:8000 
